@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <div className="container footerInner">
+      <div className= "footerInner">
         <div className="footerCol">
           <div className="footerBrand">GBaldassarre</div>
           <div className="footerTag">ARTES VIVAS</div>
@@ -68,7 +68,7 @@ export default function Footer() {
       </div>
 
       <div className="footerBottom">
-        <div className="container footerBottomInner">
+        <div className="footerBottomInner">
           <span>© {year} GBaldassarre</span>
           <span className="footerDot">·</span>
           <span>Todos los derechos reservados</span>
