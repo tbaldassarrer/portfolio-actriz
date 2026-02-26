@@ -1,0 +1,119 @@
+/* ===============================
+   LEGAL PAGES - GBaldassarre
+   =============================== */
+
+.legal-page {
+  background: #f8f6f9;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* HERO */
+.legal-hero {
+  padding: 120px 20px 60px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+  color: white;
+}
+
+.legal-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.legal-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto 10px auto;
+}
+
+.legal-updated {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* CONTAINER */
+.legal-container {
+  max-width: 900px;
+  margin: -40px auto 0 auto;
+  padding: 0 20px;
+}
+
+/* CARD */
+.legal-card {
+  background: white;
+  padding: 50px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* TITLES */
+.legal-card h2 {
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* TEXT */
+.legal-card p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #444;
+  font-size: 1rem;
+}
+
+/* LIST */
+.legal-list {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.legal-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* LINKS */
+.legal-link {
+  color: #c49b66;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.legal-link:hover {
+  text-decoration: underline;
+}
+
+/* NOTE BOX */
+.legal-note {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fafafa;
+  border-left: 4px solid #c49b66;
+  border-radius: 8px;
+}
+
+/* FOOTER LEGAL LINKS */
+.footer-legal {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  font-size: 0.9rem;
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #c49b66;
+}
