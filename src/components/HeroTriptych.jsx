@@ -1,14 +1,20 @@
 export default function HeroTriptych() {
+  const base = import.meta.env.BASE_URL;
+
   return (
     <section className="heroTriptych">
       <div className="heroTile">
-        <img className="heroMedia" src="/img/hero-left.jpg" alt="Imagen hero" />
+        <img
+          className="heroMedia"
+          src={`${base}img/hero-left.jpg`}
+          alt="Imagen hero"
+        />
       </div>
 
       <div className="heroTile">
         <video
           className="heroMedia"
-          src="/video/hero-loop.mp4"
+          src={`${base}video/hero-loop.mp4`}
           autoPlay
           loop
           muted
@@ -17,7 +23,11 @@ export default function HeroTriptych() {
       </div>
 
       <div className="heroTile">
-        <img className="heroMedia" src="/img/hero-left.jpg" alt="Imagen hero" />
+        <img
+          className="heroMedia"
+          src={`${base}img/hero-left.jpg`}
+          alt="Imagen hero"
+        />
       </div>
     </section>
   );
