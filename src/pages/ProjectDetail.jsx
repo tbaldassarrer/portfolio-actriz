@@ -55,7 +55,7 @@ const PROJECTS = {
     ),
     galleryType: "pandemiaGrid",
     gallery: [
-      { src: "img/img1.jpg", alt: "Los Pandemia 1" },
+      { src: "img/hero-left.jpg", alt: "Los Pandemia 1" },
       { src: "img/img9.jpg", alt: "Los Pandemia 2" },
       { src: "img/img10.jpg", alt: "Los Pandemia 3" },
       { src: "img/img11.jpg", alt: "Los Pandemia 4" },

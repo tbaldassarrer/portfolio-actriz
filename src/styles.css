@@ -147,12 +147,12 @@ main{ padding-top: var(--header-h); }
 }
 
 .homeSubtitle{
-  margin-top: 12px;
+  
   font-size: clamp(18px, 2.4vw, 34px);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--muted-55);
-  margin-top: -10px;
+  margin-top: -6px;
 }
 .heroTriptych{
   display: grid;
@@ -726,15 +726,20 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 /* Responsive */
+/* Responsive – Pandemia sin recorte */
 @media (max-width: 900px){
+
   .galleryGrid.galleryGridPandemia{
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
   .galleryGridPandemia .galleryImg{
+    width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: auto;        /* 🔥 quitamos proporción forzada */
+    object-fit: contain;       /* 🔥 NO recorta */
+    background: #000;          /* 🔥 fondo negro si sobra espacio */
   }
 }
 
@@ -922,7 +927,79 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
     width: 100%;
     max-width: 360px;
     text-align: right;      /* alineado al borde imagen */
-    margin-top: 8px;
-    font-size: 11px;
+    margin-top: 1px;
+    font-size: 8px;
   }
+}
+/* ================= PROJECT DETAIL – FIX MÓVIL (proyectos con imágenes) ================= */
+@media (max-width: 900px){
+
+  /* 1) Evita scroll lateral / desbordes */
+  html, body { overflow-x: hidden; }
+  .container { overflow-x: hidden; }
+
+  /* 2) La galería NO puede expandirse en móvil */
+  .projectGallery{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* 3) Grid más compacto en móvil */
+  .galleryGrid{
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* 4) Imágenes: sin altura fija (que se adapten bien) */
+  .galleryImg{
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  /* 5) Caption legible y alineado */
+  .galleryCaption{
+    font-size: 10px;
+    margin-top: 6px;
+    text-align: right;
+  }
+
+  /* 6) Texto al final con un aire bonito */
+  .projectHeader{
+    margin-top: 26px;
+    max-width: 100%;
+  }
+/* Igualamos el ancho del texto al ancho visual de la galería */
+  .projectHeader{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  /* Justificado profesional */
+  .projectIntro,
+  .projectNote{
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* Mejora microtipográfica para que no queden huecos feos */
+  .projectIntro{
+    line-height: 1.6;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+
+  .projectNote{
+    line-height: 1.5;
+  }
+
+  /* Que el título respire pero alineado con el bloque */
+  .projectTitle{
+    margin-bottom: 12px;
+  }
+  
 }
