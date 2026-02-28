@@ -1,30 +1,40 @@
 /* ================= RESET ================= */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-body {
+
+:root{
+  --header-h: 72px;
+  --container-w: min(1100px, calc(100% - 48px));
+  --text: #111;
+
+  --line-weak: rgba(0,0,0,0.08);
+  --line-softer: rgba(0,0,0,0.05);
+
+  --muted-70: rgba(17,17,17,0.7);
+  --muted-65: rgba(17,17,17,0.65);
+  --muted-75: rgba(17,17,17,0.75);
+  --muted-55: rgba(17,17,17,0.55);
+}
+
+body{
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: #fff;
-  color: #111;
+  color: var(--text);
 }
-a { text-decoration: none; color: inherit; }
+
+a{ text-decoration: none; color: inherit; }
 
 /* ================= LAYOUT ================= */
-:root{
-  --header-h: 72px;
-}
+.page{ min-height: 100vh; }
 
-.page { min-height: 100vh; }
-
-.container {
-  width: min(1100px, calc(100% - 48px));
+.container{
+  width: var(--container-w);
   margin: 0 auto;
 }
 
 /* Para que NINGUNA página quede debajo del header fijo */
-main{
-  padding-top: var(--header-h);
-}
+main{ padding-top: var(--header-h); }
 
 /* ================= HEADER ================= */
 .header{
@@ -33,59 +43,74 @@ main{
   z-index: 999;
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid var(--line-weak);
+  transition: transform 0.35s ease, opacity 0.35s ease;
 }
-.headerInner {
-  height: 72px;
+
+.headerVisible{ transform: translateY(0); opacity: 1; }
+.headerHidden{ transform: translateY(-100%); opacity: 0; }
+
+.headerInner{
+  height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 /* Brand */
-.brand { padding: 0; background: transparent; }
+.brand{ padding: 0; background: transparent; }
+
 .brandBlock{
   display: flex;
   flex-direction: column;
   line-height: 1.1;
-    transform: translateY(-2px); /* ajuste fino */
-
+  transform: translateY(-2px);
 }
-.brandName{
+
+.brandName,
+.footerBrand{
   font-weight: 700;
   letter-spacing: -0.02em;
   font-size: 18px;
-  color: #111;
+  color: var(--text);
 }
-.brandSub{
+
+.brandSub,
+.footerTag{
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   opacity: 0.6;
-  margin-top: 2px;
-  color: #111;
+  
 }
+
+/* Ajustes específicos que ya tenías */
+.brandSub{ margin-top: 2px; color: var(--text); }
+.footerTag{ margin-top: 1px; }
 
 /* Nav */
 .nav{ display: flex; gap: 24px; }
+
 .navLink{
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #111;
+  color: var(--text);
   padding: 10px 0;
   position: relative;
   white-space: nowrap;
 }
+
 .navLink::after{
   content:"";
   position:absolute;
   left:0; bottom: 6px;
   width:0%;
   height:1px;
-  background:#111;
+  background: var(--text);
   transition: width 180ms ease;
 }
+
 .navLink:hover::after,
 .navLink.active::after{
   width:100%;
@@ -99,50 +124,68 @@ main{
   .navLink{ font-size: 13px; letter-spacing: 0.1em; }
 }
 
-/* ================= HOME ================= */
-.homePage{
-  /* el padding-top ya lo da main */
+/* Container SOLO para el header (alineado a la izquierda) */
+.containerHeader{
+  width: var(--container-w);
+  margin-left: 24px;
+  margin-right: auto;
 }
 
+/* ================= HOME ================= */
 /* Título grande arriba del hero */
 .homeTitleSection{
   margin-top: 40px;
   margin-bottom: 28px;
-  padding-left: 6%; /* más editorial hacia la izquierda */
+  padding-left: 6%;
 }
+
 .homeTitle{
   margin: 0;
-  font-size: clamp(44px, 6vw, 92px);
+  font-size: clamp(34px, 6vw, 52px);
   letter-spacing: -0.02em;
-  color: #111;
+  color: var(--text);
 }
+
 .homeSubtitle{
   margin-top: 12px;
   font-size: clamp(18px, 2.4vw, 34px);
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(17,17,17,0.55);
+  color: var(--muted-55);
+  margin-top: -10px;
 }
-
-/* Hero tríptico debajo */
 .heroTriptych{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;   
   gap: 0;
   width: 100%;
-  height: 72vh;
-}
-.heroTile{
-  overflow: hidden;
+  height: auto;
+  overflow: hidden;            
   background: #000;
 }
+
+/* tu heroMedia puede quedarse igual */
 .heroMedia{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   filter: grayscale(1) contrast(1.05);
 }
+[data-aos="zoom-in"] {
+  transform: scale(0.98);
+}
+
+.heroTile{
+  width: 100%;
+  aspect-ratio: 2200 / 840;  /* ✅ mismo ratio que tu imagen */
+  max-height: 72vh;          /* ✅ límite visual en pantallas grandes */
+  overflow: hidden;
+  background: #000;
+    margin-bottom: -1px;
+
+}
+
 
 @media (max-width: 900px){
   .homeTitleSection{ padding-left: 0; }
@@ -152,33 +195,52 @@ main{
   }
   .heroTile{ height: 55vh; }
 }
+@media (max-width: 700px){
+  .heroTile{
+    height: 17.5vh;       /* ✅ presencia sin exagerar */
+    max-height: 720px;  /* ✅ evita monstruo en móviles grandes */
+    aspect-ratio: auto;
+    display: block;       /* 🔥 quita el comportamiento raro del grid */
+  line-height: 0;
+    
+  }
 
+  .heroMedia{
+    object-fit: contain;      /* ✅ NO recorta */
+    object-position: center;  /* centrada */
+  }
+}
 /* ================= PÁGINAS GENERALES ================= */
 .pageSection{
-  padding-top: 64px;   /* extra espacio dentro del main */
+  padding-top: 96px;
   padding-bottom: 120px;
 }
 
-/* ================= PROYECTOS ================= */
+/* ================= PROYECTOS (GRID ANTIGUA - NO TOCAR) ================= */
 .grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+
 .cardProject{ display:block; color: inherit; }
+
 .thumb{
   width: 100%;
   aspect-ratio: 4 / 3;
   background: #eaeaea;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid var(--line-weak);
   transition: transform 0.35s ease, filter 0.35s ease;
 }
+
 .cardProject:hover .thumb{
   transform: scale(1.03);
   filter: brightness(0.95);
 }
+
 .cardMeta{ padding-top: 10px; }
 .cardTitle{ font-weight: 700; letter-spacing: -0.01em; }
+
 .cardSub{
   margin-top: 4px;
   font-size: 12px;
@@ -190,6 +252,7 @@ main{
 @media (max-width: 900px){
   .grid{ grid-template-columns: 1fr 1fr; }
 }
+
 @media (max-width: 520px){
   .grid{ grid-template-columns: 1fr; }
 }
@@ -201,18 +264,23 @@ main{
   grid-template-columns: 1.3fr 1fr;
   gap: 60px;
 }
+
 .contactForm{
   display:flex;
   flex-direction: column;
   gap: 22px;
 }
+
 .formGroup{ display:flex; flex-direction:column; gap:8px; }
-.formGroup label{
+
+.formGroup label,
+.infoLabel{
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #444;
 }
+
 input, textarea{
   border: none;
   border-bottom: 1px solid rgba(0,0,0,0.2);
@@ -223,12 +291,13 @@ input, textarea{
   background: transparent;
   transition: border-color 0.2s ease;
 }
-input:focus, textarea:focus{ border-bottom-color:#111; }
+
+input:focus, textarea:focus{ border-bottom-color: var(--text); }
 
 .btnPrimary{
   margin-top: 10px;
   padding: 12px 0;
-  border: 1px solid #111;
+  border: 1px solid var(--text);
   background: transparent;
   cursor: pointer;
   letter-spacing: 0.08em;
@@ -236,23 +305,27 @@ input:focus, textarea:focus{ border-bottom-color:#111; }
   font-size: 12px;
   transition: all 0.25s ease;
 }
-.btnPrimary:hover{ background:#111; color:#fff; }
+
+.btnPrimary:hover{ background: var(--text); color:#fff; }
 
 .contactInfo{ display:flex; flex-direction:column; gap: 22px; }
 .infoItem{ display:flex; flex-direction:column; gap: 6px; }
-.infoLabel{
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #444;
+
+.infoLink,
+.footerLink{
+  width: fit-content;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
 }
+
 .infoLink{
   font-size: 15px;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
-  padding-bottom: 2px;
-  width: fit-content;
+  border-bottom-color: rgba(0,0,0,0.25);
 }
+
 .infoLink:hover{ border-bottom-color: rgba(0,0,0,0.8); }
+
 .formError{ font-size: 12px; color:#c0392b; margin-top: 4px; }
 
 @media (max-width: 900px){
@@ -260,15 +333,14 @@ input:focus, textarea:focus{ border-bottom-color:#111; }
 }
 
 /* ================= FOOTER ================= */
-.footer {
+.footer{
   margin-top: 120px;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid var(--line-softer);
   background: linear-gradient(to bottom, #fafafa, #f4f4f4);
 }
 
-/* contenedor interno centrado */
-.footerInner {
-  width: min(1100px, calc(100% - 48px));
+.footerInner{
+  width: var(--container-w);
   margin: 0 auto;
   padding: 60px 0;
 
@@ -277,140 +349,523 @@ input:focus, textarea:focus{ border-bottom-color:#111; }
   gap: 50px;
 }
 
-.footerBrand {
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  font-size: 18px;
-}
-
-.footerTag {
-  margin-top: 6px;
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-
-.footerSmall {
+.footerSmall{
   margin-top: 18px;
   font-size: 14px;
   line-height: 1.7;
-  color: rgba(17,17,17,0.75);
+  color: var(--muted-75);
   max-width: 42ch;
 }
 
-.footerTitle {
+.footerTitle{
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(17,17,17,0.7);
+  color: var(--muted-70);
   margin-bottom: 14px;
 }
 
-.footerLink {
+.footerLink{
   display: block;
-  width: fit-content;
   margin-top: 10px;
   font-size: 14px;
-  color: #111;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  padding-bottom: 2px;
-  transition: border-color 0.2s ease;
+  color: var(--text);
 }
 
-.footerLink:hover {
-  border-bottom-color: rgba(0,0,0,0.8);
-}
+.footerLink:hover{ border-bottom-color: rgba(0,0,0,0.8); }
 
 /* barra inferior full width */
-.footerBottom {
-  border-top: 1px solid rgba(0,0,0,0.08);
+.footerBottom{
+  border-top: 1px solid var(--line-weak);
   padding: 18px 0;
 }
 
-
-.footerBottomInner {
-  width: min(1100px, calc(100% - 48px));
+.footerBottomInner{
+  width: var(--container-w);
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* clave */
+  justify-content: space-between;
   align-items: center;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(17,17,17,0.65);
+  color: var(--muted-65);
 }
 
-.footerDot { opacity: 0.5; }
-
-@media (max-width: 900px) {
-  .footerInner {
+@media (max-width: 900px){
+  .footerInner{
     grid-template-columns: 1fr;
     gap: 36px;
     padding: 44px 0;
   }
 
-  .footerBottomInner {
+  .footerBottomInner{
     flex-wrap: wrap;
     row-gap: 6px;
   }
 }
 
-/* ================= LEGAL ================= */
+/* ================= LEGAL (si lo usas en otras páginas) ================= */
 .legalPage{ max-width: 900px; }
 .legalHead{ margin-bottom: 34px; }
+
 .legalTitle{
   font-size: clamp(34px, 4vw, 48px);
   letter-spacing: -0.02em;
   margin: 0;
 }
+
+.legalIntro,
+.legalP{
+  font-size: 15px;
+  color: var(--muted-75);
+}
+
 .legalIntro{
   margin-top: 14px;
-  font-size: 15px;
   line-height: 1.8;
-  color: rgba(17,17,17,0.75);
   max-width: 70ch;
 }
+
 .legalSection{
   margin-top: 26px;
   padding-top: 18px;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid var(--line-weak);
 }
+
 .legalH2{
   margin: 0;
   font-size: 16px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
+
 .legalP{
   margin-top: 12px;
-  font-size: 15px;
   line-height: 1.85;
-  color: rgba(17,17,17,0.75);
-}
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: #fff;
-  transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-/* Visible */
-.headerVisible {
-  transform: translateY(0);
-  opacity: 1;
+/* ================= PROJECTS (MASONRY REAL EN 2 COLUMNAS) ================= */
+.projectsHead{ margin-bottom: 40px; }
+
+.projectsTitle{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+    display: flex;
+  align-items: baseline; /* alinea por la línea del texto */
+  gap: 14px;             /* espacio entre “Proyectos” y el bloque */
+
+}
+/* subtítulo en la misma línea */
+.projectsSubtitleInline{
+  font-size: 16px;       /* o el que ya te guste */
+  font-weight: 400;
+  color: var(--muted-70);
+  letter-spacing: 0;     /* menos espaciado */
+  text-transform: none;  /* para que no se vuelva mayúscula si el h2 lo fuera */
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;             /* espacio entre | y el texto */
 }
 
-/* Hidden */
-.headerHidden {
-  transform: translateY(-100%);
-  opacity: 0;
+
+.projectsBar{
+  display: inline-block;
+  margin-right: 6px;
+  color: rgba(17,17,17,0.9);
 }
-.containerHeader {
-  width: min(1100px, calc(100% - 48px));
-  margin-left: 24px;
-  margin-right: auto;
+
+/* Contenedor 2 columnas */
+.projectsMasonry{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+/* Cada columna apila independiente */
+.projectsCol{
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.projectItem{
+  display: block;
+  color: inherit;
+}
+
+/* Imágenes */
+.projectImg{
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+/* Tamaños EXACTOS */
+.projectImg.small{ height: 280px; }
+.projectImg.tall{ height: 520px; }
+
+/* Título */
+.projectCaption{
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+}
+
+/* Hover sutil */
+.projectItem:hover .projectImg{
+  filter: grayscale(1) contrast(1.05) brightness(0.92);
+  transform: translateY(-1px);
+
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .projectsMasonry{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .projectsCol{ gap: 26px; }
+
+  .projectImg.small,
+  .projectImg.tall{
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .projectCaption{ font-size: 18px; }
+}
+
+/* ================= PROJECT DETAIL (AJUSTADO) ================= */
+/* ✅ Solo esto último: texto más estrecho, vídeo más ancho, mismo eje izquierdo */
+.projectDetail{
+  max-width: 950px;  /* “área” del proyecto (permite vídeo más ancho) */
+  margin: 0;         /* alineado a la izquierda dentro del container */
+}
+
+.backLink{
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 2px;
+  width: fit-content;
+  margin-top: 14px; 
+  
+
+}
+
+.backLink:hover{
+  border-bottom-color: rgba(0,0,0,0.8);
+}
+
+/* Columna editorial del texto */
+.projectHeader{
+  margin-top: 18px;
+  max-width: 760px;  /* ✅ ancho del texto */
+  max-width: 520px;
+
+}
+
+.projectTitle{
+  font-size: clamp(20px, 2vw, 24px);
+  margin-bottom: 6px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.projectIntro{
+  font-size: 13px;
+  line-height: 1.2;   
+  color: rgba(17,17,17,0.85);
+  letter-spacing: -0.01em;
+    text-align: justify;
+
+
+}
+
+.projectIntro strong{
+  font-weight: 700;
+}
+
+.projectNote{
+  margin-top: 10px;
+  font-size: 11px;
+  line-height: 1.4;
+  opacity: 0.6;
+  letter-spacing: -0.01em;
+    text-align: justify;
+
+
+}
+
+/* Vídeo: más ancho que el texto, pero MISMO inicio a la izquierda */
+.projectMedia{
+  margin-top: 34px;
+  max-width: 900px; /* ✅ ancho del vídeo */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mediaFrame{
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  aspect-ratio: 16 / 9;
+}
+
+.mediaVideo{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.mediaCaption{
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(17,17,17,0.85);
+  text-align: right;
+}
+
+/* Galería opcional */
+.detailGallery{
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.detailImg{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.05);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+@media (max-width: 900px){
+  .projectHeader{ max-width: 100%; }
+  .projectMedia{ max-width: 100%; }
+
+  .detailGallery{ grid-template-columns: 1fr; }
+  .detailImg{ height: auto; aspect-ratio: 4 / 3; }
+}
+.projectGallery{
+  margin-top: 40px;
+
+  /* arranca alineada con el texto */
+  margin-left: 0;
+
+  /* se expande hacia la derecha */
+  width: calc(100% + 170px);
+  max-width: 1200px;
+}
+
+.galleryGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.galleryImg{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.05);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.galleryCaption{
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(17,17,17,0.85);
+  text-align: right;
+}
+
+@media (max-width: 900px){
+  .galleryGrid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .galleryImg{
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+/* ===== LOS PANDEMIA – GRID IMPACTANTE ===== */
+
+.galleryGrid.galleryGridPandemia{
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.galleryGridPandemia .galleryImg{
+  width: 100%;
+  aspect-ratio: 3 / 2;  /* más panorámico → más presencia */
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .galleryGrid.galleryGridPandemia{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .galleryGridPandemia .galleryImg{
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ===== XX (otra versión): 3 imágenes en fila, look panorámico ===== */
+.galleryGrid.galleryGridXX{
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.galleryGridXX .galleryImg{
+  aspect-ratio: 16 / 9;  /* más apaisado, como la referencia */
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .galleryGrid.galleryGridXX{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .galleryGridXX .galleryImg{
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ================= ABOUT COMPACT ================= */
+
+.aboutPage{
+  margin-top: 20px;
+}
+
+.aboutSplit{
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* más equilibrado */
+  gap: 50px;                       /* menos separación */
+  align-items: center;
+  min-height: 65vh;                /* que quepa en pantalla */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== TEXTO ===== */
+
+.aboutText{
+  display: flex;
+  flex-direction: column;  /* 🔥 esto es clave */
+  justify-content: center; /* centra verticalmente todo el bloque */
+}
+
+.aboutBio{
+  margin: 0;
+  max-width: 60ch;      /* ✅ antes 46ch → más ancho */
+  font-size: 14px;
+  line-height: 1.55;    /* ✅ antes 1.7 → menos interlineado */
+  color: rgba(17,17,17,0.85);
+  text-align: justify;
+}
+
+/* ===== IMAGEN ===== */
+
+.aboutFigure{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.aboutImg{
+  width: 100%;
+  max-width: 480px;         /* 🔥 más pequeña */
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.aboutCredit{
+  margin-top: 8px;
+  font-size: 11px;
+  text-align: right;
+  color: rgba(17,17,17,0.8);
+}
+.aboutName{
+  font-weight: 700;
+  font-size: 22px;
+}
+/* ================= RESPONSIVE ================= */
+
+/* ================= PORTÁTIL (13-17") – que quepa sin scroll ================= */
+@media (min-width: 900px) and (max-height: 900px){
+
+  .aboutSplit{
+    max-width: 900px;   /* 🔥 más estrecho que el container normal */
+    margin: 0 auto;      /* 🔥 lo centra */
+    gap: 60px;                  /* ✅ menos separación entre columnas */
+    align-items: center;
+    min-height: auto;          /* ✅ no fuerces altura */
+  }
+
+  /* Texto más integrado (menos alto) */
+  .aboutName{
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .aboutBio{
+    font-size: 13.5px;
+    line-height: 1.55;         /* ✅ menos altura */
+    max-width: 60ch;           /* ✅ más ancho -> menos líneas */
+  }
+
+  /* Imagen que SIEMPRE se vea completa, sin recorte */
+  .aboutImg{
+    max-width: 520px;          /* ✅ un poco más contenida */
+    max-height: 78vh;          /* ✅ clave: que quepa en portátil */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* ✅ NO recorta */
+  }
+.aboutFigure{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: fit-content;     /* 🔥 el figure toma el ancho real de la imagen */
+    margin-left: auto;      /* lo empuja a la derecha */
+  }
+  .aboutCredit{
+    font-size: 11px;
+    margin-top: 6px;
+    width: 100%;            /* ocupa exactamente el ancho de la imagen */
+    text-align: right; 
+  }
 }

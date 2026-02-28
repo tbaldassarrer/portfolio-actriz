@@ -7,12 +7,11 @@ export default function Footer() {
     <footer className="footer">
       <div className= "footerInner">
         <div className="footerCol">
-          <div className="footerBrand">GBaldassarre</div>
+          <div className="footerBrand">Gbaldassarre</div>
           <div className="footerTag">ARTES VIVAS</div>
 
           <div className="footerSmall">
-            Portfolio visual de proyectos. Disponible para colaboraciones y nuevos
-            trabajos.
+           
           </div>
         </div>
 
@@ -69,7 +68,7 @@ export default function Footer() {
 
       <div className="footerBottom">
         <div className="footerBottomInner">
-          <span>© {year} GBaldassarre</span>
+          <span>© {year} Gbaldassarre</span>
           <span className="footerDot">·</span>
           <span>Todos los derechos reservados</span>
         </div>

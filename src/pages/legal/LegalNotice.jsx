@@ -12,7 +12,7 @@ const LegalNotice = () => {
         <div className="legal-hero__content">
           <h1 className="legal-title">Aviso Legal</h1>
           <p className="legal-subtitle">
-            Condiciones de uso y datos identificativos del titular del sitio.
+            Información legal del titular del sitio web y condiciones generales de uso.
           </p>
           <p className="legal-updated">Última actualización: 26 de febrero de 2026</p>
         </div>
@@ -20,53 +20,40 @@ const LegalNotice = () => {
 
       <section className="legal-container">
         <article className="legal-card">
-          <h2>1. Titular del sitio web</h2>
           <p>
-            En cumplimiento con el deber de información, se facilitan a continuación los datos del titular del sitio web.
-          </p>
-          <ul className="legal-list">
-            <li><strong>Titular:</strong> GBaldassarre</li>
-            <li><strong>Contacto:</strong> <a className="legal-link" href="mailto:info@gbaldassarre.es">info@gbaldassarre.es</a></li>
-            <li><strong>Ámbito:</strong> Sitio web profesional</li>
-          </ul>
-
-          <h2>2. Objeto</h2>
-          <p>
-            Este sitio web tiene como objetivo ofrecer información sobre la actividad profesional, servicios,
-            contenidos y vías de contacto. El acceso y uso del sitio atribuye la condición de usuario e implica
-            la aceptación de las presentes condiciones.
+            En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información
+            y de Comercio Electrónico, se informa que la titularidad de este sitio web corresponde a{" "}
+            <strong>Guaxara Baldassarre Rodríguez</strong>, con <strong>DNI 78519427A</strong>; dirección{" "}
+            <strong>c/ El Morrete, 41 B, 35017, Las Palmas de Gran Canaria</strong>; y correo electrónico de contacto{" "}
+            <a className="legal-link" href="mailto:g@gbaldassarre.com">
+              g@gbaldassarre.com
+            </a>
+            .
           </p>
 
-          <h2>3. Propiedad intelectual e industrial</h2>
           <p>
-            Todos los contenidos del sitio (textos, imágenes, diseño, logotipos, código, etc.) están protegidos
-            por derechos de propiedad intelectual e industrial. Queda prohibida su reproducción, distribución
-            o modificación sin autorización expresa del titular.
+            La actividad de este sitio web tiene como finalidad la difusión de proyectos de <strong>Artes Vivas</strong>{" "}
+            y contenidos de carácter artístico.
           </p>
 
-          <h2>4. Responsabilidad</h2>
           <p>
-            El titular no se responsabiliza del mal uso que se realice de los contenidos del sitio, ni de los
-            daños derivados del acceso o uso. Tampoco se garantiza la ausencia de virus u otros elementos que
-            puedan causar alteraciones en sistemas informáticos del usuario.
+            Todos los derechos de propiedad intelectual sobre los textos, imágenes, vídeos y demás contenidos presentes
+            en esta plataforma pertenecen a su autora (salvo que se indique lo contrario), quedando prohibida su
+            reproducción o distribución sin autorización expresa.
           </p>
 
-          <h2>5. Enlaces externos</h2>
           <p>
-            Este sitio puede contener enlaces a páginas de terceros. El titular no se responsabiliza del contenido,
-            políticas o prácticas de dichos sitios.
-          </p>
-
-          <h2>6. Legislación aplicable</h2>
-          <p>
-            La relación entre el usuario y el titular se regirá por la normativa vigente en España. Para cualquier
-            controversia, las partes se someterán a los juzgados y tribunales que correspondan conforme a derecho.
+            La titular no se hace responsable del uso indebido de los contenidos ni de los errores técnicos ajenos
+            a su control que puedan dificultar la navegación.
           </p>
 
           <div className="legal-note">
             <p>
-              Para consultas legales:{" "}
-              <a className="legal-link" href="mailto:info@gbaldassarre.es">info@gbaldassarre.es</a>.
+              Para consultas:{" "}
+              <a className="legal-link" href="mailto:g@gbaldassarre.com">
+                g@gbaldassarre.com
+              </a>
+              .
             </p>
           </div>
         </article>

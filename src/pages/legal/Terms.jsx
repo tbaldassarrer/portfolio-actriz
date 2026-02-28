@@ -12,7 +12,7 @@ const Terms = () => {
         <div className="legal-hero__content">
           <h1 className="legal-title">Condiciones de Uso</h1>
           <p className="legal-subtitle">
-            Normas básicas de uso del sitio web y responsabilidades del usuario.
+            Normas que regulan el acceso y uso de este sitio web.
           </p>
           <p className="legal-updated">Última actualización: 26 de febrero de 2026</p>
         </div>
@@ -20,48 +20,37 @@ const Terms = () => {
 
       <section className="legal-container">
         <article className="legal-card">
-          <h2>1. Aceptación de las condiciones</h2>
+
           <p>
-            El acceso y navegación por este sitio implica la aceptación de estas condiciones de uso.
-            Si no estás de acuerdo, por favor no utilices el sitio.
+            El acceso y navegación por este sitio web atribuye la condición de usuario e implica
+            la aceptación de las presentes condiciones.
           </p>
 
-          <h2>2. Uso correcto del sitio</h2>
-          <ul className="legal-list">
-            <li>No usar el sitio con fines ilícitos o perjudiciales.</li>
-            <li>No intentar acceder a áreas restringidas o sistemas sin autorización.</li>
-            <li>No introducir malware, scripts o acciones que afecten al funcionamiento del sitio.</li>
-          </ul>
-
-          <h2>3. Contenidos y disponibilidad</h2>
           <p>
-            El titular podrá modificar, actualizar o retirar contenidos sin previo aviso. No se garantiza
-            la disponibilidad ininterrumpida del sitio, aunque se intentará mantener un funcionamiento correcto.
+            El usuario se compromete a hacer un uso adecuado de los contenidos y servicios,
+            absteniéndose de utilizarlos para actividades ilícitas o contrarias a la buena fe.
           </p>
 
-          <h2>4. Enlaces a terceros</h2>
           <p>
-            El sitio puede incluir enlaces a páginas externas. El titular no se responsabiliza de sus contenidos
-            ni de su funcionamiento.
+            Todos los contenidos de este sitio (textos, imágenes, vídeos, diseño y código)
+            están protegidos por derechos de propiedad intelectual y pertenecen a su autora,
+            salvo que se indique lo contrario.
           </p>
 
-          <h2>5. Limitación de responsabilidad</h2>
           <p>
-            El usuario es responsable del uso que haga del sitio. El titular no responde de daños derivados del uso,
-            interrupciones del servicio o fallos técnicos ajenos.
-          </p>
-
-          <h2>6. Modificaciones</h2>
-          <p>
-            Estas condiciones pueden modificarse en cualquier momento. La versión vigente será la publicada en esta página.
+            La titular se reserva el derecho de modificar en cualquier momento el contenido
+            del sitio web sin previo aviso.
           </p>
 
           <div className="legal-note">
             <p>
-              Para cualquier cuestión relacionada con estas condiciones, escribe a{" "}
-              <a className="legal-link" href="mailto:info@gbaldassarre.es">info@gbaldassarre.es</a>.
+              Para cualquier cuestión relacionada con estas condiciones, puedes contactar en{" "}
+              <a className="legal-link" href="mailto:g@gbaldassarre.com">
+                g@gbaldassarre.com
+              </a>.
             </p>
           </div>
+
         </article>
       </section>
     </main>

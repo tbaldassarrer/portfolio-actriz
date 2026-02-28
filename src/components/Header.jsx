@@ -22,7 +22,7 @@ export default function Header() {
       <div className="containerHeader headerInner">
         <div className="brand">
           <div className="brandBlock">
-            <span className="brandName">GBaldassarre</span>
+            <span className="brandName">Gbaldassarre</span>
             <span className="brandSub">ARTES VIVAS</span>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function Header() {
         <nav className="nav">
           <NavLink to="/" className="navLink">Inicio</NavLink>
           <NavLink to="/projects" className="navLink">Proyectos</NavLink>
-          <NavLink to="/about" className="navLink">Sobre mí</NavLink>
+          <NavLink to="/about" className="navLink">Acerca de</NavLink>
           <NavLink to="/contact" className="navLink">Contacto</NavLink>
         </nav>
       </div>

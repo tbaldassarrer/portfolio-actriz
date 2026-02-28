@@ -5,7 +5,7 @@ export default function Home() {
    <main className="homePage">
   <div className="container">
     <div className="homeTitleSection">
-      <h1 className="homeTitle">GBaldassarre</h1>
+      <h1 className="homeTitle">Gbaldassarre</h1>
       <div className="homeSubtitle">ARTES VIVAS</div>
     </div>
   </div>

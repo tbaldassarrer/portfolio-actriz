@@ -6,27 +6,13 @@ export default function HeroTriptych() {
       <div className="heroTile">
         <img
           className="heroMedia"
-          src={`${base}img/hero-left.jpg`}
+          src={`${base}img/img20.jpg`}
           alt="Imagen hero"
-        />
-      </div>
-
-      <div className="heroTile">
-        <video
-          className="heroMedia"
-          src={`${base}video/hero-loop.mp4`}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-      </div>
-
-      <div className="heroTile">
-        <img
-          className="heroMedia"
-          src={`${base}img/hero-left.jpg`}
-          alt="Imagen hero"
+          data-aos="zoom-in"
+          data-aos-duration="1400"
+          data-aos-easing="ease-out-cubic"
+          data-aos-once="true"
+          data-aos-offset="0"
         />
       </div>
     </section>
