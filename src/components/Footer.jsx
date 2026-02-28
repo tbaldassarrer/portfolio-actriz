@@ -18,30 +18,12 @@ export default function Footer() {
         <div className="footerCol">
           <div className="footerTitle">Contacto</div>
 
-          <a className="footerLink" href="mailto:contacto@ejemplo.com">
-            contacto@ejemplo.com
+          <a className="footerLink" href="mailto:g@gbaldassarre.com">
+            g@gbaldassarre.com
           </a>
 
-          <a
-            className="footerLink"
-            href="https://instagram.com/usuario"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Instagram · @usuario
-          </a>
-
-          <a
-            className="footerLink"
-            href="https://wa.me/34600000000"
-            target="_blank"
-            rel="noreferrer"
-          >
-            WhatsApp · +34 600 000 000
-          </a>
-
-          <a className="footerLink" href="tel:+34600000000">
-            Tel · +34 600 000 000
+          <a className="footerLink" href="tel:+34650511029">
+            Tel · +34 650 511 029
           </a>
         </div>
 

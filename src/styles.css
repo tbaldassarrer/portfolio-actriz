@@ -81,7 +81,6 @@ main{ padding-top: var(--header-h); }
   letter-spacing: 0.25em;
   text-transform: uppercase;
   opacity: 0.6;
-  
 }
 
 /* Ajustes específicos que ya tenías */
@@ -147,20 +146,20 @@ main{ padding-top: var(--header-h); }
 }
 
 .homeSubtitle{
-  
   font-size: clamp(18px, 2.4vw, 34px);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--muted-55);
   margin-top: -6px;
 }
+
 .heroTriptych{
   display: grid;
-  grid-template-columns: 1fr;   
+  grid-template-columns: 1fr;
   gap: 0;
   width: 100%;
   height: auto;
-  overflow: hidden;            
+  overflow: hidden;
   background: #000;
 }
 
@@ -172,9 +171,8 @@ main{ padding-top: var(--header-h); }
   display: block;
   filter: grayscale(1) contrast(1.05);
 }
-[data-aos="zoom-in"] {
-  transform: scale(0.98);
-}
+
+[data-aos="zoom-in"] { transform: scale(0.98); }
 
 .heroTile{
   width: 100%;
@@ -182,27 +180,21 @@ main{ padding-top: var(--header-h); }
   max-height: 72vh;          /* ✅ límite visual en pantallas grandes */
   overflow: hidden;
   background: #000;
-    margin-bottom: -1px;
-
+  margin-bottom: -1px;
 }
-
 
 @media (max-width: 900px){
   .homeTitleSection{ padding-left: 0; }
-  .heroTriptych{
-    grid-template-columns: 1fr;
-    height: auto;
-  }
   .heroTile{ height: 55vh; }
 }
+
 @media (max-width: 700px){
   .heroTile{
-    height: 17.5vh;       /* ✅ presencia sin exagerar */
+    height: 17.5vh;     /* ✅ presencia sin exagerar */
     max-height: 720px;  /* ✅ evita monstruo en móviles grandes */
     aspect-ratio: auto;
-    display: block;       /* 🔥 quita el comportamiento raro del grid */
-  line-height: 0;
-    
+    display: block;     /* 🔥 quita el comportamiento raro del grid */
+    line-height: 0;
   }
 
   .heroMedia{
@@ -210,6 +202,7 @@ main{ padding-top: var(--header-h); }
     object-position: center;  /* centrada */
   }
 }
+
 /* ================= PÁGINAS GENERALES ================= */
 .pageSection{
   padding-top: 96px;
@@ -279,6 +272,7 @@ main{ padding-top: var(--header-h); }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #444;
+  margin-top: -15px;
 }
 
 input, textarea{
@@ -452,11 +446,11 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
   margin: 0;
   font-size: 28px;
   letter-spacing: -0.02em;
-    display: flex;
+  display: flex;
   align-items: baseline; /* alinea por la línea del texto */
   gap: 14px;             /* espacio entre “Proyectos” y el bloque */
-
 }
+
 /* subtítulo en la misma línea */
 .projectsSubtitleInline{
   font-size: 16px;       /* o el que ya te guste */
@@ -468,7 +462,6 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
   align-items: baseline;
   gap: 10px;             /* espacio entre | y el texto */
 }
-
 
 .projectsBar{
   display: inline-block;
@@ -524,7 +517,6 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 .projectItem:hover .projectImg{
   filter: grayscale(1) contrast(1.05) brightness(0.92);
   transform: translateY(-1px);
-
 }
 
 /* Responsive */
@@ -560,9 +552,7 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
   border-bottom: 1px solid rgba(0,0,0,0.2);
   padding-bottom: 2px;
   width: fit-content;
-  margin-top: 14px; 
-  
-
+  margin-top: 14px;
 }
 
 .backLink:hover{
@@ -572,9 +562,7 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 /* Columna editorial del texto */
 .projectHeader{
   margin-top: 18px;
-  max-width: 760px;  /* ✅ ancho del texto */
   max-width: 520px;
-
 }
 
 .projectTitle{
@@ -587,17 +575,13 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 
 .projectIntro{
   font-size: 13px;
-  line-height: 1.2;   
+  line-height: 1.2;
   color: rgba(17,17,17,0.85);
   letter-spacing: -0.01em;
-    text-align: justify;
-
-
+  text-align: justify;
 }
 
-.projectIntro strong{
-  font-weight: 700;
-}
+.projectIntro strong{ font-weight: 700; }
 
 .projectNote{
   margin-top: 10px;
@@ -605,9 +589,7 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
   line-height: 1.4;
   opacity: 0.6;
   letter-spacing: -0.01em;
-    text-align: justify;
-
-
+  text-align: justify;
 }
 
 /* Vídeo: más ancho que el texto, pero MISMO inicio a la izquierda */
@@ -665,12 +647,11 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
   .detailGallery{ grid-template-columns: 1fr; }
   .detailImg{ height: auto; aspect-ratio: 4 / 3; }
 }
+
 .projectGallery{
   margin-top: 40px;
-
   /* arranca alineada con el texto */
   margin-left: 0;
-
   /* se expande hacia la derecha */
   width: calc(100% + 170px);
   max-width: 1200px;
@@ -710,8 +691,8 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
     aspect-ratio: 4 / 3;
   }
 }
-/* ===== LOS PANDEMIA – GRID IMPACTANTE ===== */
 
+/* ===== LOS PANDEMIA – GRID IMPACTANTE ===== */
 .galleryGrid.galleryGridPandemia{
   grid-template-columns: repeat(3, 1fr);
   gap: 36px;
@@ -725,10 +706,8 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
   border: none;
 }
 
-/* Responsive */
 /* Responsive – Pandemia sin recorte */
 @media (max-width: 900px){
-
   .galleryGrid.galleryGridPandemia{
     grid-template-columns: 1fr;
     gap: 14px;
@@ -767,10 +746,7 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 /* ================= ABOUT COMPACT ================= */
-
-.aboutPage{
-  margin-top: 20px;
-}
+.aboutPage{ margin-top: 20px; }
 
 .aboutSplit{
   display: grid;
@@ -783,7 +759,6 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 /* ===== TEXTO ===== */
-
 .aboutText{
   display: flex;
   flex-direction: column;  /* 🔥 esto es clave */
@@ -800,7 +775,6 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 /* ===== IMAGEN ===== */
-
 .aboutFigure{
   margin: 0;
   display: flex;
@@ -818,31 +792,30 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 .aboutCredit{
-  margin-top: 1px;                  /* ✅ más pegado */
-  font-size: 8px;                  /* ✅ más pequeño */
-  color: black;       /* ✅ gris elegante */
+  margin-top: 1px;      /* ✅ más pegado */
+  font-size: 8px;       /* ✅ más pequeño */
+  color: black;
   letter-spacing: 0.02em;
   text-align: right;
   line-height: 1.2;
 }
+
 .aboutName{
   font-weight: 700;
   font-size: 22px;
 }
-/* ================= RESPONSIVE ================= */
 
+/* ================= RESPONSIVE ================= */
 /* ================= PORTÁTIL (13-17") – que quepa sin scroll ================= */
 @media (min-width: 900px) and (max-height: 900px){
-
   .aboutSplit{
     max-width: 900px;   /* 🔥 más estrecho que el container normal */
-    margin: 0 auto;      /* 🔥 lo centra */
-    gap: 60px;                  /* ✅ menos separación entre columnas */
+    margin: 0 auto;     /* 🔥 lo centra */
+    gap: 60px;          /* ✅ menos separación entre columnas */
     align-items: center;
-    min-height: auto;          /* ✅ no fuerces altura */
+    min-height: auto;   /* ✅ no fuerces altura */
   }
 
-  /* Texto más integrado (menos alto) */
   .aboutName{
     font-size: 18px;
     margin-bottom: 10px;
@@ -850,35 +823,29 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 
   .aboutBio{
     font-size: 13.5px;
-    line-height: 1.55;         /* ✅ menos altura */
-    max-width: 60ch;           /* ✅ más ancho -> menos líneas */
+    line-height: 1.55;  /* ✅ menos altura */
+    max-width: 60ch;    /* ✅ más ancho -> menos líneas */
   }
 
-  /* Imagen que SIEMPRE se vea completa, sin recorte */
   .aboutImg{
-    max-width: 520px;          /* ✅ un poco más contenida */
-    max-height: 78vh;          /* ✅ clave: que quepa en portátil */
+    max-width: 520px;   /* ✅ un poco más contenida */
+    max-height: 78vh;   /* ✅ clave: que quepa en portátil */
     width: 100%;
     height: 100%;
-    object-fit: contain;       /* ✅ NO recorta */
+    object-fit: contain; /* ✅ NO recorta */
   }
-.aboutFigure{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: fit-content;     /* 🔥 el figure toma el ancho real de la imagen */
-    margin-left: auto;      /* lo empuja a la derecha */
+
+  .aboutFigure{
+    width: fit-content; /* 🔥 el figure toma el ancho real de la imagen */
+    margin-left: auto;  /* lo empuja a la derecha */
   }
+
   .aboutCredit{
-    font-size: 8px;
-    margin-top: 1px;
-    width: 100%;            /* ocupa exactamente el ancho de la imagen */
-    text-align: right; 
+    width: 100%;        /* ocupa exactamente el ancho de la imagen */
   }
 }
 
 @media (max-width: 900px){
-
   .aboutSplit{
     grid-template-columns: 1fr;
     gap: 26px;
@@ -888,8 +855,7 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 
   .aboutText{
     align-items: flex-start;
-        order: 2;   /* texto después */
-
+    order: 2;   /* texto después */
   }
 
   .aboutName{
@@ -908,12 +874,8 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 
   .aboutFigure{
     width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: center;    /* imagen centrada */
-    margin: 0;
-        order: 1;   /* imagen primero */
-
+    order: 1;               /* imagen primero */
   }
 
   .aboutImg{
@@ -931,14 +893,12 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
     font-size: 8px;
   }
 }
-/* ================= PROJECT DETAIL – FIX MÓVIL (proyectos con imágenes) ================= */
+
+/* ================= PROJECT DETAIL – MÓVIL (UNIFICADO Y SIN REPETICIONES) ================= */
+/* ===== LOS PANDEMIA – MÓVIL: 1 columna (una encima de otra) ===== */
 @media (max-width: 900px){
 
-  /* 1) Evita scroll lateral / desbordes */
-  html, body { overflow-x: hidden; }
-  .container { overflow-x: hidden; }
-
-  /* 2) La galería NO puede expandirse en móvil */
+  /* (Opcional) quita el “fondo negro + :has” si te está dando problemas en iOS */
   .projectGallery{
     width: 100% !important;
     max-width: 100% !important;
@@ -946,60 +906,30 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
     margin-right: 0 !important;
   }
 
-  /* 3) Grid más compacto en móvil */
-  .galleryGrid{
+  /* ✅ Fuerza 1 columna */
+  .galleryGrid.galleryGridPandemia{
+    display: grid;
     grid-template-columns: 1fr !important;
     gap: 14px !important;
   }
 
-  /* 4) Imágenes: sin altura fija (que se adapten bien) */
-  .galleryImg{
-    height: auto !important;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-
-  /* 5) Caption legible y alineado */
-  .galleryCaption{
-    font-size: 10px;
-    margin-top: 6px;
-    text-align: right;
-  }
-
-  /* 6) Texto al final con un aire bonito */
-  .projectHeader{
-    margin-top: 26px;
-    max-width: 100%;
-  }
-/* Igualamos el ancho del texto al ancho visual de la galería */
-  .projectHeader{
+  /* ✅ Imagen a ancho completo y altura automática */
+  .galleryGridPandemia .galleryImg{
     width: 100%;
-    max-width: 100%;
-    margin-left: 0;
+    height: auto !important;
+    aspect-ratio: auto !important;  /* quita proporción forzada */
+    object-fit: cover;              /* o "contain" si NO quieres recorte */
+    display: block;
+    background: transparent;         /* quita negro si no lo quieres */
   }
 
-  /* Justificado profesional */
-  .projectIntro,
-  .projectNote{
-    text-align: justify;
-    text-justify: inter-word;
+  /* Caption normal */
+  .projectGallery .galleryCaption{
+    margin-top: 6px;
+    font-size: 10px;
+    text-align: right;
+    color: rgba(17,17,17,0.85);
+    background: transparent;
+    padding-top: 0;
   }
-
-  /* Mejora microtipográfica para que no queden huecos feos */
-  .projectIntro{
-    line-height: 1.6;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-  }
-
-  .projectNote{
-    line-height: 1.5;
-  }
-
-  /* Que el título respire pero alineado con el bloque */
-  .projectTitle{
-    margin-bottom: 12px;
-  }
-  
 }
