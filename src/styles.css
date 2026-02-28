@@ -635,8 +635,8 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 .mediaCaption{
-  margin-top: 8px;
-  font-size: 12px;
+  margin-top: 1px;
+  font-size: 9px;
   color: rgba(17,17,17,0.85);
   text-align: right;
 }
@@ -693,8 +693,8 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 .galleryCaption{
-  margin-top: 10px;
-  font-size: 12px;
+  margin-top: 1px;
+  font-size: 8px;
   color: rgba(17,17,17,0.85);
   text-align: right;
 }
@@ -813,10 +813,12 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 }
 
 .aboutCredit{
-  margin-top: 8px;
-  font-size: 11px;
+  margin-top: 1px;                  /* ✅ más pegado */
+  font-size: 8px;                  /* ✅ más pequeño */
+  color: black;       /* ✅ gris elegante */
+  letter-spacing: 0.02em;
   text-align: right;
-  color: rgba(17,17,17,0.8);
+  line-height: 1.2;
 }
 .aboutName{
   font-weight: 700;
@@ -863,9 +865,64 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
     margin-left: auto;      /* lo empuja a la derecha */
   }
   .aboutCredit{
-    font-size: 11px;
-    margin-top: 6px;
+    font-size: 8px;
+    margin-top: 1px;
     width: 100%;            /* ocupa exactamente el ancho de la imagen */
     text-align: right; 
+  }
+}
+
+@media (max-width: 900px){
+
+  .aboutSplit{
+    grid-template-columns: 1fr;
+    gap: 26px;
+    max-width: 520px;       /* más agrupado */
+    margin: 0 auto;
+  }
+
+  .aboutText{
+    align-items: flex-start;
+        order: 2;   /* texto después */
+
+  }
+
+  .aboutName{
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .aboutBio{
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;       /* clave en móvil */
+    letter-spacing: 0;      /* evita huecos raros */
+  }
+
+  .aboutFigure{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* imagen centrada */
+    margin: 0;
+        order: 1;   /* imagen primero */
+
+  }
+
+  .aboutImg{
+    width: 100%;
+    max-width: 360px;       /* equilibrio ideal */
+    height: auto;
+    object-fit: contain;    /* no recorta */
+  }
+
+  .aboutCredit{
+    width: 100%;
+    max-width: 360px;
+    text-align: right;      /* alineado al borde imagen */
+    margin-top: 8px;
+    font-size: 11px;
   }
 }
