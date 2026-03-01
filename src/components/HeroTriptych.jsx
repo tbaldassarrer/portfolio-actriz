@@ -6,7 +6,7 @@ export default function HeroTriptych() {
       <div className="heroTile">
         <img
           className="heroMedia"
-          src={`${base}img/img20.jpg`}
+          src={`${base}img/hero-left.jpg`}
           alt="Imagen hero"
           data-aos="zoom-in"
           data-aos-duration="1400"

@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import FullscreenCarousel from "../components/FullscreenCarousel";
 
 const PROJECTS = {
   "proyecto-uno": {
@@ -41,31 +42,27 @@ const PROJECTS = {
     credit: "Fotos: Helena Madox",
   },
 
-  "proyecto-tres": {
-    title: "",
-    intro: (
-      <>
-        <strong>LOS PANDEMIA</strong> constituye un proceso de investigación visual
-        donde la identidad se construye a través de la mediación del objeto
-        cotidiano. Lo que nace como un registro doméstico durante el confinamiento
-        evoluciona hacia una práctica de autorretrato performativo, transformando
-        la intimidad en un escenario de resistencia donde el cuerpo se distorsiona
-        para desplazar lo personal hacia una dimensión política.
-      </>
-    ),
-    galleryType: "pandemiaGrid",
-    gallery: [
-      { src: "img/hero-left.jpg", alt: "Los Pandemia 1" },
-      { src: "img/img9.jpg", alt: "Los Pandemia 2" },
-      { src: "img/img10.jpg", alt: "Los Pandemia 3" },
-      { src: "img/img11.jpg", alt: "Los Pandemia 4" },
-      { src: "img/img12.jpg", alt: "Los Pandemia 5" },
-      { src: "img/img13.jpg", alt: "Los Pandemia 6" },
-      { src: "img/img14.jpg", alt: "Los Pandemia 7" },
-      { src: "img/img15.jpg", alt: "Los Pandemia 8" },
-      { src: "img/img16.jpg", alt: "Los Pandemia 9" },
-    ],
-  },
+"proyecto-tres": {
+  title: "",
+  intro: (
+    <>
+      <strong>LOS PANDEMIA</strong> constituye un proceso de investigación visual
+      donde la identidad se construye a través de la mediación del objeto
+      cotidiano...
+    </>
+  ),
+  gallery: [
+    { src: "img/hero-left.jpg", alt: "Los Pandemia 1", caption: "Franco no ha muerto" },
+    { src: "img/img9.jpg", alt: "Los Pandemia 2", caption: "Don't touch your face" },
+    { src: "img/img10.jpg", alt: "Los Pandemia 3", caption: "Sombra analógica" },
+    { src: "img/img11.jpg", alt: "Los Pandemia 4", caption: "It matters" },
+    { src: "img/img3.jpg", alt: "Los Pandemia 5", caption: "Political Cabaret" },
+    { src: "img/img13.jpg", alt: "Los Pandemia 6", caption: "Torso de hilo sobre mi cabeza" },
+    { src: "img/img14.jpg", alt: "Los Pandemia 7", caption: "Contemporary mask" },
+    { src: "img/img15.jpg", alt: "Los Pandemia 8", caption: "Welcome to nowhere" },
+    { src: "img/img16.jpg", alt: "Los Pandemia 9", caption: "Thr-d-ead" },
+  ],
+},
 
   "proyecto-cuatro": {
     title: "",
@@ -99,6 +96,16 @@ export default function ProjectDetail() {
     <span className="muted">Contenido próximamente.</span>
   );
 
+  // ✅ Prepara imágenes para el carrusel (solo si hay gallery)
+const carouselImages =
+  project?.gallery?.length > 0
+    ? project.gallery.map((img, i) => ({
+        src: `${base}${img.src}`,
+        alt: img.alt ?? `Imagen ${i + 1}`,
+        caption: img.caption, // ✅ AQUI
+      }))
+    : [];
+
   return (
     <main className="container pageSection">
       <Link className="backLink" to="/projects">
@@ -106,8 +113,7 @@ export default function ProjectDetail() {
       </Link>
 
       <article className="projectDetail">
-
-        {/* ✅ MEDIA ARRIBA */}
+        {/* ✅ VIDEO (si existe) */}
         {project?.video?.src && (
           <figure className="projectMedia">
             <div className="mediaFrame">
@@ -126,37 +132,21 @@ export default function ProjectDetail() {
             </div>
 
             {project.video.caption && (
-              <figcaption className="mediaCaption">
-                {project.video.caption}
-              </figcaption>
+              <figcaption className="mediaCaption">{project.video.caption}</figcaption>
             )}
           </figure>
         )}
 
-        {project?.gallery?.length > 0 && (
-          <figure className="projectGallery">
-            <div
-              className={`galleryGrid 
-                ${project?.galleryType === "pandemiaGrid" ? "galleryGridPandemia" : ""} 
-                ${project?.galleryType === "xxRow" ? "galleryGridXX" : ""}`}
-            >
-              {project.gallery.map((img, i) => (
-                <img
-                  key={i}
-                  className="galleryImg"
-                  src={`${base}${img.src}`}
-                  alt={img.alt ?? `Imagen ${i + 1}`}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-
+        {/* ✅ CARRUSEL FULLSCREEN (reemplaza el grid) */}
+        {carouselImages.length > 0 && (
+          <>
+            <FullscreenCarousel images={carouselImages} interval={4500} />
             {project?.credit && (
-              <figcaption className="galleryCaption">
+              <div className="galleryCaption" style={{ marginTop: "6px" }}>
                 {project.credit}
-              </figcaption>
+              </div>
             )}
-          </figure>
+          </>
         )}
 
         {/* ✅ TEXTO ABAJO */}
@@ -165,7 +155,6 @@ export default function ProjectDetail() {
           <p className="projectIntro">{intro}</p>
           {project?.note && <p className="projectNote">{project.note}</p>}
         </header>
-
       </article>
     </main>
   );
