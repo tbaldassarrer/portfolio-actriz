@@ -1,9 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import FullscreenCarousel from "../components/FullscreenCarousel";
 
+// ✅ Slugs bonitos (esto es lo que verás en la URL)
 const PROJECTS = {
-  "proyecto-uno": {
-    title: "",
+  "cubo-de-sal-sobre-mi-cabeza": {
+    title: "CUBO DE SAL SOBRE MI CABEZA",
     intro: (
       <>
         <strong>CUBO DE SAL SOBRE MI CABEZA</strong> sitúa el cuerpo en un cruce
@@ -22,8 +24,8 @@ const PROJECTS = {
     },
   },
 
-  "proyecto-dos": {
-    title: "",
+  "its-your-birthday-333": {
+    title: "IT’S YOUR BIRTHDAY (333)",
     intro: (
       <>
         <strong>IT’S YOUR BIRTHDAY (333)</strong> es un poema visual en movimiento
@@ -42,30 +44,30 @@ const PROJECTS = {
     credit: "Fotos: Helena Madox",
   },
 
-"proyecto-tres": {
-  title: "",
-  intro: (
-    <>
-      <strong>LOS PANDEMIA</strong> constituye un proceso de investigación visual
-      donde la identidad se construye a través de la mediación del objeto
-      cotidiano...
-    </>
-  ),
-  gallery: [
-    { src: "img/hero-left.jpg", alt: "Los Pandemia 1", caption: "Franco no ha muerto" },
-    { src: "img/img9.jpg", alt: "Los Pandemia 2", caption: "Don't touch your face" },
-    { src: "img/img10.jpg", alt: "Los Pandemia 3", caption: "Sombra analógica" },
-    { src: "img/img11.jpg", alt: "Los Pandemia 4", caption: "It matters" },
-    { src: "img/img3.jpg", alt: "Los Pandemia 5", caption: "Political Cabaret" },
-    { src: "img/img13.jpg", alt: "Los Pandemia 6", caption: "Torso de hilo sobre mi cabeza" },
-    { src: "img/img14.jpg", alt: "Los Pandemia 7", caption: "Contemporary mask" },
-    { src: "img/img15.jpg", alt: "Los Pandemia 8", caption: "Welcome to nowhere" },
-    { src: "img/img16.jpg", alt: "Los Pandemia 9", caption: "Thr-d-ead" },
-  ],
-},
+  "los-pandemia": {
+    title: "LOS PANDEMIA",
+    intro: (
+      <>
+        <strong>LOS PANDEMIA</strong> constituye un proceso de investigación visual
+        donde la identidad se construye a través de la mediación del objeto
+        cotidiano...
+      </>
+    ),
+    gallery: [
+      { src: "img/hero-left.jpg", alt: "Los Pandemia 1", caption: "Franco no ha muerto" },
+      { src: "img/img9.jpg", alt: "Los Pandemia 2", caption: "Don't touch your face" },
+      { src: "img/img10.jpg", alt: "Los Pandemia 3", caption: "Sombra analógica" },
+      { src: "img/img11.jpg", alt: "Los Pandemia 4", caption: "It matters" },
+      { src: "img/img12.jpg", alt: "Los Pandemia 5", caption: "Political Cabaret" },
+      { src: "img/img13.jpg", alt: "Los Pandemia 6", caption: "Torso de hilo sobre mi cabeza" },
+      { src: "img/img14.jpg", alt: "Los Pandemia 7", caption: "Contemporary mask" },
+      { src: "img/img15.jpg", alt: "Los Pandemia 8", caption: "Welcome to nowhere" },
+      { src: "img/img16.jpg", alt: "Los Pandemia 9", caption: "Thr-d-ead" },
+    ],
+  },
 
-  "proyecto-cuatro": {
-    title: "",
+  "xx-otra-version": {
+    title: "XX (OTRA VERSIÓN)",
     intro: (
       <>
         <strong>XX (OTRA VERSIÓN)</strong> es una pieza que investiga los
@@ -87,24 +89,39 @@ const PROJECTS = {
 
 export default function ProjectDetail() {
   const { slug } = useParams();
+  const location = useLocation();
   const base = import.meta.env.BASE_URL;
 
   const project = PROJECTS[slug];
 
+  // ✅ Título para el <h1>
   const title = project?.title ?? slug.replaceAll("-", " ");
   const intro = project?.intro ?? (
     <span className="muted">Contenido próximamente.</span>
   );
 
+  // ✅ Cambia el título del navegador (la pestaña)
+  useEffect(() => {
+    if (project?.title) {
+      document.title = `${project.title} · Gbaldassarre`;
+    } else {
+      document.title = "Gbaldassarre";
+    }
+
+    return () => {
+      document.title = "Gbaldassarre";
+    };
+  }, [location.pathname, project]);
+
   // ✅ Prepara imágenes para el carrusel (solo si hay gallery)
-const carouselImages =
-  project?.gallery?.length > 0
-    ? project.gallery.map((img, i) => ({
-        src: `${base}${img.src}`,
-        alt: img.alt ?? `Imagen ${i + 1}`,
-        caption: img.caption, // ✅ AQUI
-      }))
-    : [];
+  const carouselImages =
+    project?.gallery?.length > 0
+      ? project.gallery.map((img, i) => ({
+          src: `${base}${img.src}`,
+          alt: img.alt ?? `Imagen ${i + 1}`,
+          caption: img.caption,
+        }))
+      : [];
 
   return (
     <main className="container pageSection">
@@ -137,7 +154,7 @@ const carouselImages =
           </figure>
         )}
 
-        {/* ✅ CARRUSEL FULLSCREEN (reemplaza el grid) */}
+        {/* ✅ CARRUSEL FULLSCREEN */}
         {carouselImages.length > 0 && (
           <>
             <FullscreenCarousel images={carouselImages} interval={4500} />
@@ -149,7 +166,7 @@ const carouselImages =
           </>
         )}
 
-        {/* ✅ TEXTO ABAJO */}
+        {/* ✅ TEXTO */}
         <header className="projectHeader">
           <h1 className="projectTitle">{title}</h1>
           <p className="projectIntro">{intro}</p>

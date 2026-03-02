@@ -1,10 +1,26 @@
 import { Link } from "react-router-dom";
 
 const items = [
-  { slug: "proyecto-uno", title: "Cubo de sal sobre mi cabeza", img: "img1.jpg" },
-  { slug: "proyecto-dos", title: "It´s your birthday (333)", img: "img2.jpg" },
-  { slug: "proyecto-tres", title: "Los Pandemia", img: "img20.jpg" },
-  { slug: "proyecto-cuatro", title: "XX (otra versión)", img: "img4.jpg" },
+  {
+    slug: "cubo-de-sal-sobre-mi-cabeza",
+    title: "Cubo de sal sobre mi cabeza",
+    img: "img1.jpg",
+  },
+  {
+    slug: "its-your-birthday-333",
+    title: "It´s your birthday (333)",
+    img: "img2.jpg",
+  },
+  {
+    slug: "los-pandemia",
+    title: "Los Pandemia",
+    img: "img20.jpg",
+  },
+  {
+    slug: "xx-otra-version",
+    title: "XX (otra versión)",
+    img: "img4.jpg",
+  },
 ];
 
 export default function Projects() {
@@ -21,13 +37,13 @@ export default function Projects() {
   return (
     <main className="container pageSection projectsPage">
       <div className="projectsHead">
-  <h2 className="projectsTitle">
-    Proyectos{" "}
-    <span className="projectsSubtitleInline">
-      <span className="projectsBar">|</span> Selección de trabajos
-    </span>
-  </h2>
-</div>
+        <h2 className="projectsTitle">
+          Proyectos{" "}
+          <span className="projectsSubtitleInline">
+            <span className="projectsBar">|</span> Selección de trabajos
+          </span>
+        </h2>
+      </div>
 
       {/* Masonry real: 2 columnas que apilan independiente */}
       <section className="projectsMasonry">

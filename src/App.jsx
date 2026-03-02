@@ -45,19 +45,25 @@ export default function App() {
       {/* 🔥 Esto hace que siempre suba arriba al cambiar de página */}
       <ScrollToTop />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+      {/* ✅ IMPORTANTE: envolvemos todo en MAIN para que no se pise con el header fijo */}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
 
-        {/* Rutas legales */}
-        <Route path="/aviso-legal" element={<LegalNotice />} />
-        <Route path="/privacidad" element={<Privacy />} />
-        <Route path="/cookies" element={<Cookies />} />
-        <Route path="/condiciones" element={<Terms />} />
-      </Routes>
+          {/* ✅ Slug bonito */}
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
+
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+
+          {/* Rutas legales */}
+          <Route path="/aviso-legal" element={<LegalNotice />} />
+          <Route path="/privacidad" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/condiciones" element={<Terms />} />
+        </Routes>
+      </main>
 
       <Footer />
     </div>
