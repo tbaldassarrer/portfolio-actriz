@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const items = [
   { slug: "proyecto-uno", title: "Cubo de sal sobre mi cabeza", img: "img1.jpg" },
   { slug: "proyecto-dos", title: "It´s your birthday (333)", img: "img2.jpg" },
-  { slug: "proyecto-tres", title: "Los Pandemia", img: "img3.jpg" },
+  { slug: "proyecto-tres", title: "Los Pandemia", img: "img20.jpg" },
   { slug: "proyecto-cuatro", title: "XX (otra versión)", img: "img4.jpg" },
 ];
 

@@ -26,15 +26,24 @@ body{
 a{ text-decoration: none; color: inherit; }
 
 /* ================= LAYOUT ================= */
-.page{ min-height: 100vh; }
+.page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El main ocupa el espacio disponible y empuja el footer abajo */
+.page > main{
+  flex: 1;
+    padding-top: var(--header-h);
+
+}
 
 .container{
   width: var(--container-w);
   margin: 0 auto;
 }
 
-/* Para que NINGUNA página quede debajo del header fijo */
-main{ padding-top: var(--header-h); }
 
 /* ================= HEADER ================= */
 .header{
@@ -215,7 +224,7 @@ background: #000;    /* evita blanco lateral */
 /* ================= PÁGINAS GENERALES ================= */
 .pageSection{
   padding-top: 96px;
-  padding-bottom: 120px;
+  padding-bottom: 70px;
 }
 
 /* ================= PROYECTOS (GRID ANTIGUA - NO TOCAR) ================= */
@@ -337,7 +346,7 @@ input:focus, textarea:focus{ border-bottom-color: var(--text); }
 
 /* ================= FOOTER ================= */
 .footer{
-  margin-top: 120px;
+  margin-top: 0px;
   border-top: 1px solid var(--line-softer);
   background: linear-gradient(to bottom, #fafafa, #f4f4f4);
 }
